@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c51bd67a8bfdb458b88ed69a1da434, type: 3}
+  m_Name: so_ClothingList_Legs
+  m_EditorClassIdentifier: 
+  legsClothingData:
+  - id: HOSE
+    name: Hose
+    description: 'Medieval hose. '
+    basePrice: 10
+    sprite: {fileID: 606153932, guid: 5322bbf1f0754e84e8a74d9a05b896db, type: 3}
+    animatorOverrideController: {fileID: 22100000, guid: 0dd6cb7f88f8b434c9d4b887679ea614, type: 2}
+    type: 4
+  - id: PLATE_LEGS
+    name: Plate legs
+    description: Steel armor for your legs.
+    basePrice: 30
+    sprite: {fileID: 1504340047, guid: 550f20205953ea542a9b0fec26d6147c, type: 3}
+    animatorOverrideController: {fileID: 22100000, guid: b8a83e3d3af27334fae0135e5984cb52, type: 2}
+    type: 4
