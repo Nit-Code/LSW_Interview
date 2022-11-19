@@ -12,9 +12,9 @@ public class SceneController : Singleton<SceneController>
     [SerializeField] private SceneName _startingSceneName;
     [SerializeField] private Vector3 _startingPosition;
 
-    private void Start()
+    private IEnumerator Start()
     {
-        LoadScene(_startingSceneName, _startingPosition);
+        yield return StartCoroutine(LoadSceneAndSetActive(_startingSceneName));
     }
 
     public void LoadScene(SceneName sceneName, Vector3 spawnPosition) // If there's time, switch to scriptableObjects for scene data. Add black screen with related events while it is loading each scene
@@ -35,8 +35,6 @@ public class SceneController : Singleton<SceneController>
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
         yield return StartCoroutine(LoadSceneAndSetActive(sceneName));
-
-        EventHandler.CallAfterSceneLoadEvent();
     }
 
     private IEnumerator LoadSceneAndSetActive(SceneName sceneName)
@@ -48,5 +46,7 @@ public class SceneController : Singleton<SceneController>
         Scene newlyLoadedScene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
 
         SceneManager.SetActiveScene(newlyLoadedScene);
+
+        EventHandler.CallAfterSceneLoadEvent();
     }
 }

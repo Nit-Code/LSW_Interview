@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Singleton<ItemManager>
 {
     private Dictionary<string, ItemData> _itemDataDictionary;
 
@@ -12,8 +12,10 @@ public class ItemManager : MonoBehaviour
     [SerializeField] private SO_ClothingList_Torso _torsoClothingDataSO;
     [SerializeField] private SO_ClothingList_Legs _legsClothingDataSO;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         CreateItemDataDictionary();
     }
 
